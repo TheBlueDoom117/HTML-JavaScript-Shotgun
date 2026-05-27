@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
+<h2 style="text-align:center" id="shotgun">Use the Shotgun</h2><br>
+<p style="text-align:center">
+<script>
+ function demo(frameindex) {
+ let pic;
+ if (frameindex === 0) {
+ pic = "sg2.gif";
+ playSound('shotgunshot.MP3');
+ } else if(frameindex === 1){
+ pic = "sg3.gif";
+ playSound('shotgunpump1.MP3');
+ } else if(frameindex === 2){
+ pic = "sg1.gif";
+ playSound('shotgunpump2.MP3');
+ } else if(frameindex === 3){
+ pic = "sg4.gif";
+ playSound('shotgunreload.MP3');
+ } else {
+   console.error("Invalid frame index:", frameIndex);
+	 return;
+ }
+ document.getElementById('demo').src = pic;
+ }
+ function playSound(soundFile){
+  const audio = new Audio(soundFile);
+  audio.play()
+   .catch(error => {
+    console.error("Audio play failed;", error);
+  });
+ }
+</script>
+</p>
+<h1 style="text-align:center"><img id="demo" src="sg1.gif" loading="lazy" width="1696" height="378"></h1>
+<p style="text-align:center;">
+<button style="background-color:red;color:white;padding:10px;text-align:center;text-decoration:none;displaty:inline-block;" type="button" onclick="demo(0)">Fire</button>
+<button style="background-color:black;color:white;padding:10px;text-align:center;text-decoration:none;displaty:inline-block;" type="button" onclick="demo(1)">Pump Back</button>
+<button style="background-color:gray;color:white;padding:10px;text-align:center;text-decoration:none;displaty:inline-block;" type="button" onclick="demo(2)">Pump Forward</button>
+<button style="background-color:green;color:white;padding:10px;text-align:center;text-decoration:none;displaty:inline-block;" type="button" onclick="demo(3)">Load a Shell</button>
+</p>
+<h2 style="text-align:center">Main code and art by:
+<b style="color:blue;">TheBlueDoom117</b><br>
+JavaScript help and Shotguns Sounds:"But Hito - Markimoo"</h2>
+<body>
+<html>
